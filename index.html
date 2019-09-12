@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html xmlns:og="http://ogp.me/ns#">
+    <head>
+        <title>Minecraft Stronghold Finder</title>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="strong.css" />
+        <script type="text/javascript" src="strong.js"></script>
+        <meta property="og:title" content="Minecraft Stronghold Finder" />
+        <meta property="og:description" content="Trouvez un Stronghold sans gaspiller le moindre Oeil de l'Ender" />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://dakurei.github.io/game-stronghold_finder/" />
+        <meta property="og:image" content="https://dakurei.github.io/game-stronghold_finder/MinecraftStrongholdFinder.png" />
+        <meta property="og:site_name" content="Minecraft Stronghold Finder" />
+    </head>
+
+    <body onLoad="load();">
+        <div id="title">
+            <h1>Minecraft Stronghold Finder</h1>
+            <p>&ldquo;Trouvez un Stronghold sans gaspiller le moindre Oeil de l'Ender&rdquo;</p>
+        </div>
+
+        <div id="controls_map">
+            <div id="controls">
+                <div id="new_measurement">
+                    <h3>Ajouter une mesure</h3>
+                    <label for="x1">X&nbsp;</label><input id="x1" name="x1" />
+                    <label for="y1">Z&nbsp;</label><input id="y1" name="y1" /><br />
+                    <label for="x2">X' </label><input id="x2" name="x2" />
+                    <label for="y2">Z' </label><input id="y2" name="y2" /><br />
+                    <button class="btn blue" onClick="newMeasurementButton();">+ AJOUTER</button>
+                </div>
+                <div id="measurements">
+                    <h3>Mesures</h3>
+                    <div id="selectbox">
+                        <select id="measurement_list" multiple="True" size=15>
+                        </select>
+                    </div>
+                    <button class="btn red" onClick="deleteMeasurements();">Supprimer les mesures sélectionnées</button>
+                </div>
+                <div id="result_box" class="warning">
+                    <h3>Résultat</h3>
+                    <div id="results"></div>
+                </div>
+            </div>
+            <div id="map_frame">
+                <canvas id="map" width="640" height="480"></canvas>
+            </div>
+        </div>
+
+        <div id="instructions">
+            <h2>Instructions</h2>
+            <p>Écrivez vos coordonnées actuelles dans <em>X</em> et <em>Z</em>. Jetez un oeil de l'ender et placez-vous pile en-dessous alors qu'il flotte encore dans les airs 
+            (sa chute peut le décaler, et fausser les valeurs).
+            Écrivez vos nouvelles coordonnées dans <em>X'</em> et <em>Z'</em> puis appuyez sur <em>AJOUTER</em>.</p>
+            <p>Vous allez obtenir une estimation de la position du Stronghold dès l'instant où vous aurez 2 mesures assez distantes l'une de l'autre.
+            Pour augmenter la précision il est recommandé de s'éloigner d'une bonne distance des autres lancers (plus d'une centaine de blocs).
+            Cela peut empêcher de tomber sur des lancers parallèles qui sont très mauvais pour l'estimation de la position.
+            Par exemple, si vous lancez un oeil de l'ender, et que celui-ci va tout droit, pour le lancer suivant partez une centaine de blocs
+            dans la diagonale gauche ou droite de la direction qu'a pris l'oeil précédent.
+            Vous n'êtes pas limité en nombre de mesure, donc vous pouvez en prendre plus de 3 pour peaufiner la précision.</p>
+        </div>
+
+        <div class="titlebox"><a
+            href="https://github.com/dakurei/game-stronghold_finder">
+            Code sur Github</a><br />
+        </div>
+    </body>
+
+</html>
